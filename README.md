@@ -2,7 +2,12 @@
 
 ## Introdução
 
-Este guia tem como objetivo mostrar, de forma simples e direta, como criar e redimensionar uma Máquina Virtual (VM) no Microsoft Azure. É ideal para quem está começando ou precisa de uma referência prática.
+Este projeto é um resumo prático do que aprendi durante meus estudos na plataforma Digital Innovation One (DIO).
+
+No curso, explorei os principais conceitos sobre como criar, configurar e redimensionar Máquinas Virtuais (VMs) no Microsoft Azure, um dos principais serviços de nuvem do mercado.  
+Aqui, organizei os passos e comandos que pratiquei, como uma forma de consolidar o aprendizado e também compartilhar o conhecimento com outras pessoas que estejam começando na área de computação em nuvem.
+
+A proposta deste projeto é mostrar, de forma simples, como realizar essas operações no Azure, tanto pelo portal web quanto utilizando a linha de comando (Azure CLI).
 
 ---
 
