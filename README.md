@@ -1,72 +1,49 @@
 # Azure Virtual Machine - Configuração e Redimensionamento
 
+Este projeto é um resumo prático sobre como criar, configurar e redimensionar Máquinas Virtuais (VMs) no Microsoft Azure. O objetivo é ajudar iniciantes a entenderem como realizar essas operações no Azure, tanto pelo portal web quanto utilizando a linha de comando (Azure CLI). Aprendi esses conceitos durante o curso na plataforma **Digital Innovation One (DIO)**, que proporcionou uma excelente base para trabalhar com infraestrutura de nuvem.
+---
 ## Introdução
 
-Este projeto é um resumo prático do que aprendi durante meus estudos na plataforma Digital Innovation One (DIO).
+Este projeto visa consolidar o aprendizado de como configurar e redimensionar máquinas virtuais no Azure, além da criação e dimensionamento de áreas de trabalho no Azure. O guia está dividido entre instruções do portal Azure e uso da linha de comando (Azure CLI), e reflete o conhecimento adquirido nos cursos da DIO.
 
-No curso, explorei os principais conceitos sobre como criar, configurar e redimensionar Máquinas Virtuais (VMs) no Microsoft Azure, um dos principais serviços de nuvem do mercado.  
-Aqui, organizei os passos e comandos que pratiquei, como uma forma de consolidar o aprendizado e também compartilhar o conhecimento com outras pessoas que estejam começando na área de computação em nuvem.
+## Criando uma Máquina Virtual no Azure
 
-A proposta deste projeto é mostrar, de forma simples, como realizar essas operações no Azure, tanto pelo portal web quanto utilizando a linha de comando (Azure CLI).
+1. **Acesse o portal**
+   - Entre no portal do Azure: [https://portal.azure.com](https://portal.azure.com)
 
----
+2. **Criação da Máquina Virtual**
+   - No menu lateral, clique em "Máquinas Virtuais" > "+ Criar" > "Máquina Virtual".
+   - Preencha os seguintes detalhes:
+     - **Assinatura**: Escolha sua assinatura ativa.
+     - **Grupo de Recursos**: Selecione ou crie um novo.
+     - **Nome da VM**: Exemplo: `vm-teste-lucas`.
+     - **Região**: Escolha a região mais próxima (exemplo: "Brasil Sul").
+     - **Imagem**: Selecione o sistema operacional (exemplo: "Ubuntu 22.04 LTS" ou "Windows Server 2022").
+     - **Tamanho da VM**: Escolha conforme sua necessidade, como `Standard_B2s`.
+     - **Autenticação**:
+       - Para Linux: chave SSH ou usuário e senha.
+       - Para Windows: usuário e senha.
+     - **Disco do sistema operacional**: SSD padrão.
 
-## Como criar uma Máquina Virtual no Azure
+3. **Configuração de Rede**
+   - Habilite IP público e libere as portas necessárias (porta 22 para Linux, 3389 para Windows).
+   
+4. **Revisar e Criar**
+   - Confira as configurações e clique em "Criar".
 
-### 1. Acesse o portal
-Entre no site: [https://portal.azure.com](https://portal.azure.com)
+## Redimensionando uma Máquina Virtual
 
-### 2. Vá até a área de Máquinas Virtuais
-No menu lateral, clique em "Máquinas Virtuais" e depois em "+ Criar" > "Máquina Virtual".
+1. **Acesse sua VM**
+   - No portal Azure, vá em "Máquinas Virtuais" e selecione a VM que deseja alterar.
 
-### 3. Configure os detalhes básicos
-- **Assinatura**: Escolha sua assinatura ativa.
-- **Grupo de Recursos**: Selecione um existente ou crie um novo.
-- **Nome da VM**: Exemplo: `vm-teste-lucas`.
-- **Região**: Escolha uma região próxima, como "Brasil Sul".
-- **Imagem**: Escolha o sistema operacional, como "Ubuntu 22.04 LTS" ou "Windows Server 2022".
-- **Tamanho da VM**: Defina conforme sua necessidade, por exemplo: `Standard_B2s`.
-- **Autenticação**:
-  - Para Linux: pode usar chave SSH ou usuário e senha.
-  - Para Windows: apenas usuário e senha.
-- **Disco do sistema operacional**: Pode usar o SSD padrão.
+2. **Redimensionar a VM**
+   - No menu da VM, clique em "Tamanho".
+   - Selecione o novo modelo de VM (SKU) e clique em "Redimensionar".
+   - **Observação**: Algumas mudanças exigem que a VM seja desligada temporariamente.
 
-### 4. Configuração de rede
-- Habilite IP público.
-- Libere as portas necessárias:
-  - Linux: porta 22 (SSH)
-  - Windows: porta 3389 (RDP)
+## Usando Azure CLI
 
-### 5. Revisar e criar
-Confira todas as informações e clique em "Criar".
-
----
-
-## Como redimensionar uma Máquina Virtual
-
-### 1. Acesse sua VM
-No portal Azure, vá até "Máquinas Virtuais" e selecione a VM que deseja alterar.
-
-### 2. Alterar o tamanho
-- No menu da VM, clique em "Tamanho".
-- Escolha o novo modelo (SKU) de VM.
-- Clique em "Redimensionar".
-
-Obs: Algumas mudanças exigem desligar a máquina temporariamente.
-
----
-
-## Recomendações
-
-- Antes de redimensionar ou fazer mudanças importantes, é recomendável criar um snapshot da VM.
-- Para acompanhar o desempenho, utilize o Azure Monitor.
-- Lembre-se de verificar o custo do novo tamanho antes de aplicar as mudanças.
-
----
-
-## Usando Azure CLI (linha de comando)
-
-### Criar uma VM pelo terminal
+### Criando uma VM via linha de comando
 
 ```bash
 az login
